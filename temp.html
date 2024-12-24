@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Slider</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@3/dist/css/splide.min.css"
+    />
+    <style>
+      .splide__slide img {
+        width: 100%;
+        height: auto;
+      }
+      .splide__pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .splide__pagination__page {
+        width: 10px;
+        height: 10px;
+        margin: 0 5px;
+        background: #ccc;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .splide__pagination__page.is-active {
+        background: #333;
+      }
+    </style>
+  </head>
+  <body class="bg-gradient-to-r from-blue-400 to-green-400 h-screen">
+    <div id="image-slider" class="splide w-1/2 mt-40 mx-auto">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <img src="img/blog1.jpg" alt="Blog 1" />
+          </li>
+          <li class="splide__slide">
+            <img src="img/blog2.jpg" alt="Blog 2" />
+          </li>
+          <li class="splide__slide">
+            <img src="img/blog3.jpg" alt="Blog 3" />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@3"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide("#image-slider", {
+          type: "loop",
+          perPage: 1,
+          autoplay: true,
+          interval: 3000,
+          pagination: true,
+          arrows: true,
+        }).mount();
+      });
+    </script>
+  </body>
+</html>
